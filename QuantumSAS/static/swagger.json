@@ -9,9 +9,7 @@
     "/clientes": {
       "get": {
         "summary": "Listar todos los clientes",
-        "responses": {
-          "200": {"description": "Lista de clientes"}
-        }
+        "responses": {"200": {"description": "Lista de clientes"}}
       },
       "post": {
         "summary": "Crear un cliente",
@@ -30,36 +28,25 @@
             }
           }
         },
-        "responses": {
-          "201": {"description": "Cliente creado"},
-          "400": {"description": "Datos incompletos"}
-        }
+        "responses": {"201": {"description": "Cliente creado"}, "400": {"description": "Datos incompletos"}}
       }
     },
     "/clientes/{cliente_id}": {
       "get": {
         "summary": "Obtener cliente por ID",
         "parameters": [{"name": "cliente_id", "in": "path", "required": true, "schema": {"type": "integer"}}],
-        "responses": {
-          "200": {"description": "Cliente encontrado"},
-          "404": {"description": "Cliente no encontrado"}
-        }
+        "responses": {"200": {"description": "Cliente encontrado"}, "404": {"description": "No encontrado"}}
       },
       "delete": {
         "summary": "Eliminar cliente por ID",
         "parameters": [{"name": "cliente_id", "in": "path", "required": true, "schema": {"type": "integer"}}],
-        "responses": {
-          "200": {"description": "Cliente eliminado"},
-          "404": {"description": "Cliente no encontrado"}
-        }
+        "responses": {"200": {"description": "Cliente eliminado"}, "404": {"description": "No encontrado"}}
       }
     },
     "/productos": {
       "get": {
         "summary": "Listar todos los productos",
-        "responses": {
-          "200": {"description": "Lista de productos"}
-        }
+        "responses": {"200": {"description": "Lista de productos"}}
       },
       "post": {
         "summary": "Crear un producto",
@@ -79,36 +66,25 @@
             }
           }
         },
-        "responses": {
-          "201": {"description": "Producto creado"},
-          "400": {"description": "Datos incompletos"}
-        }
+        "responses": {"201": {"description": "Producto creado"}, "400": {"description": "Datos incompletos"}}
       }
     },
     "/productos/{producto_id}": {
       "get": {
         "summary": "Obtener producto por ID",
         "parameters": [{"name": "producto_id", "in": "path", "required": true, "schema": {"type": "integer"}}],
-        "responses": {
-          "200": {"description": "Producto encontrado"},
-          "404": {"description": "Producto no encontrado"}
-        }
+        "responses": {"200": {"description": "Producto encontrado"}, "404": {"description": "No encontrado"}}
       },
       "delete": {
         "summary": "Eliminar producto por ID",
         "parameters": [{"name": "producto_id", "in": "path", "required": true, "schema": {"type": "integer"}}],
-        "responses": {
-          "200": {"description": "Producto eliminado"},
-          "404": {"description": "Producto no encontrado"}
-        }
+        "responses": {"200": {"description": "Producto eliminado"}, "404": {"description": "No encontrado"}}
       }
     },
     "/pedidos": {
       "get": {
         "summary": "Listar todos los pedidos",
-        "responses": {
-          "200": {"description": "Lista de pedidos"}
-        }
+        "responses": {"200": {"description": "Lista de pedidos"}}
       },
       "post": {
         "summary": "Crear un pedido",
@@ -128,20 +104,14 @@
             }
           }
         },
-        "responses": {
-          "201": {"description": "Pedido creado"},
-          "404": {"description": "Cliente o producto no existe"}
-        }
+        "responses": {"201": {"description": "Pedido creado"}, "404": {"description": "Cliente o producto no existe"}}
       }
     },
     "/pedidos/{pedido_id}": {
       "get": {
         "summary": "Obtener pedido por ID",
         "parameters": [{"name": "pedido_id", "in": "path", "required": true, "schema": {"type": "integer"}}],
-        "responses": {
-          "200": {"description": "Pedido encontrado"},
-          "404": {"description": "Pedido no encontrado"}
-        }
+        "responses": {"200": {"description": "Pedido encontrado"}, "404": {"description": "No encontrado"}}
       }
     }
   }
