@@ -1,3 +1,6 @@
+cat > requirements.txt << 'EOF'
 flask
 flask-restful
 pytest
+flask-swagger-ui
+EOF

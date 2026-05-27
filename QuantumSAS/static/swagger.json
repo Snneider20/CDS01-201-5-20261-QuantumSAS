@@ -1,0 +1,148 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "QuantumSAS API",
+    "description": "API REST para la gestión de clientes, productos y pedidos de QUANTUM SAS",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/clientes": {
+      "get": {
+        "summary": "Listar todos los clientes",
+        "responses": {
+          "200": {"description": "Lista de clientes"}
+        }
+      },
+      "post": {
+        "summary": "Crear un cliente",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": {"type": "string", "example": "Santiago Herrera Rios"},
+                  "email":  {"type": "string", "example": "s.herrera@quantumsas.co"}
+                },
+                "required": ["nombre", "email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {"description": "Cliente creado"},
+          "400": {"description": "Datos incompletos"}
+        }
+      }
+    },
+    "/clientes/{cliente_id}": {
+      "get": {
+        "summary": "Obtener cliente por ID",
+        "parameters": [{"name": "cliente_id", "in": "path", "required": true, "schema": {"type": "integer"}}],
+        "responses": {
+          "200": {"description": "Cliente encontrado"},
+          "404": {"description": "Cliente no encontrado"}
+        }
+      },
+      "delete": {
+        "summary": "Eliminar cliente por ID",
+        "parameters": [{"name": "cliente_id", "in": "path", "required": true, "schema": {"type": "integer"}}],
+        "responses": {
+          "200": {"description": "Cliente eliminado"},
+          "404": {"description": "Cliente no encontrado"}
+        }
+      }
+    },
+    "/productos": {
+      "get": {
+        "summary": "Listar todos los productos",
+        "responses": {
+          "200": {"description": "Lista de productos"}
+        }
+      },
+      "post": {
+        "summary": "Crear un producto",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nombre": {"type": "string",  "example": "Laptop Dell Inspiron 15"},
+                  "precio": {"type": "number",  "example": 3200000},
+                  "stock":  {"type": "integer", "example": 15}
+                },
+                "required": ["nombre", "precio"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {"description": "Producto creado"},
+          "400": {"description": "Datos incompletos"}
+        }
+      }
+    },
+    "/productos/{producto_id}": {
+      "get": {
+        "summary": "Obtener producto por ID",
+        "parameters": [{"name": "producto_id", "in": "path", "required": true, "schema": {"type": "integer"}}],
+        "responses": {
+          "200": {"description": "Producto encontrado"},
+          "404": {"description": "Producto no encontrado"}
+        }
+      },
+      "delete": {
+        "summary": "Eliminar producto por ID",
+        "parameters": [{"name": "producto_id", "in": "path", "required": true, "schema": {"type": "integer"}}],
+        "responses": {
+          "200": {"description": "Producto eliminado"},
+          "404": {"description": "Producto no encontrado"}
+        }
+      }
+    },
+    "/pedidos": {
+      "get": {
+        "summary": "Listar todos los pedidos",
+        "responses": {
+          "200": {"description": "Lista de pedidos"}
+        }
+      },
+      "post": {
+        "summary": "Crear un pedido",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cliente_id":  {"type": "integer", "example": 1},
+                  "producto_id": {"type": "integer", "example": 1},
+                  "cantidad":    {"type": "integer", "example": 2}
+                },
+                "required": ["cliente_id", "producto_id"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {"description": "Pedido creado"},
+          "404": {"description": "Cliente o producto no existe"}
+        }
+      }
+    },
+    "/pedidos/{pedido_id}": {
+      "get": {
+        "summary": "Obtener pedido por ID",
+        "parameters": [{"name": "pedido_id", "in": "path", "required": true, "schema": {"type": "integer"}}],
+        "responses": {
+          "200": {"description": "Pedido encontrado"},
+          "404": {"description": "Pedido no encontrado"}
+        }
+      }
+    }
+  }
+}
